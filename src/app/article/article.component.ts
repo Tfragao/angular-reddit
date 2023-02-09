@@ -1,35 +1,29 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+import { Article } from './article.model';
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.css']
+  styleUrls: ['./article.component.css'],
 })
-export class ArticleComponent implements OnInit{
-  
+export class ArticleComponent implements OnInit {
   @HostBinding('attr.class') cssClass = 'row';
-  votes : number;
-  title : string;
-  link : string;
+
+  article: Article;
 
   constructor() {
-    this.title = 'Angular';
-    this.link = 'http://angular.io';
-    this.votes = 10;
-  }
-  
-  ngOnInit(): void {
-    
+    this.article = new Article('Angular', 'http://angular.io', 10);
   }
 
+  ngOnInit(): void {}
+
   voteUp() : boolean {
-    this.votes += 1;
+    this.article.voteUp();
     return false;  //This tells the browswer to no progate this event to his parent
   }
 
   voteDown() : boolean {
-    this.votes -= 1;
+    this.article.voteDown();
     return false;
   }
-
 }
