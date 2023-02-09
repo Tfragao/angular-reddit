@@ -22,12 +22,14 @@ export class ArticleComponent implements OnInit{
     
   }
 
-  voteUp() {
+  voteUp() : boolean {
     this.votes += 1;
+    return false;  //This tells the browswer to no progate this event to his parent
   }
 
-  voteDown() {
+  voteDown() : boolean {
     this.votes -= 1;
+    return false;
   }
 
 }
