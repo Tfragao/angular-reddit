@@ -4,10 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    ArticleComponent
+    ArticleComponent,
+   
   ],
   imports: [
     BrowserModule

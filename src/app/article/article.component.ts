@@ -1,5 +1,6 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { Article } from './article.model';
+
 
 @Component({
   selector: 'app-article',
@@ -8,21 +9,20 @@ import { Article } from './article.model';
 })
 export class ArticleComponent implements OnInit {
   @HostBinding('attr.class') cssClass = 'row';
-
-  article: Article;
-
+  @Input()
+  article!: Article; 
   constructor() {
-    this.article = new Article('Angular', 'http://angular.io', 10);
+    
   }
 
   ngOnInit(): void {}
 
-  voteUp() : boolean {
+  voteUp(): boolean {
     this.article.voteUp();
-    return false;  //This tells the browswer to no progate this event to his parent
+    return false; //This tells the browswer to no progate this event to his parent
   }
 
-  voteDown() : boolean {
+  voteDown(): boolean {
     this.article.voteDown();
     return false;
   }
