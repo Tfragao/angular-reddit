@@ -18,7 +18,6 @@ export class Article {
   }
 
   //domain() is a utility function that extracts the domain from a URL,
-  //which we'll explain shortly
 
   domain(): string {
     try {
